@@ -105,7 +105,7 @@ describe('Am I Rich Already?', () => {
   });
 
   describe('check method', () => {
-    it('returns false if the wallet has less then 1000000 DAI', async () => {
+    it('returns false if the wallet has less than 1000000 DAI', async () => {
       await doppelganger.balanceOf.returns(ethers.utils.parseEther('999999')); // configure doppelganger to return 999999 when balanceOf is called
       await expect(contract.check()).to.eventually.be.fulfilled.and.equal(false);
     });
@@ -115,7 +115,7 @@ describe('Am I Rich Already?', () => {
       await expect(contract.check()).to.eventually.be.fulfilled.and.equal(false);
     });
 
-    it('returns true if the wallet has more then 1000000 DAI', async () => {
+    it('returns true if the wallet has more than 1000000 DAI', async () => {
       await doppelganger.balanceOf.returns(ethers.utils.parseEther('1000001'));
       await expect(contract.check()).to.eventually.be.fulfilled.and.equal(true);
     });
